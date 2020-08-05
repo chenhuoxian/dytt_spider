@@ -1,0 +1,29 @@
+电影天堂爬虫知识点
+
+1.获取headers的“User-Agent”：
+    在谷歌浏览器电影天堂网页点击右键的“检查”，选择“Network”项的“menubg.gif”行
+在“Headers”栏有“Request Headers”字典，有个key是“User-agent”，每个网站都不同，所以要自己去检查。
+
+
+2。判断网页采用的是GET/POST请求
+    在谷歌浏览器电影天堂网页点击右键的“检查”，选择“Network”项的“menubg.gif”行
+在“Headers”栏有“General”字典,有个key是“Request Method”。
+
+3. ui文件转换为py文件：
+    pyuic5 -o test.py test.ui
+
+4.  生成EXE文件
+指令格式：
+    pyinstaller -F [主文件] -p [文件夹] --hidden-import [模块文件] -n NAME
+    -F：只生成一个单独的exe文件，如果不使用该参数会生成一堆依赖文件。
+    主文件：就是程序运行的入口文件，例如main.py
+    -p [文件夹]：项目下的文件夹名称
+    --hidden-import [模块文件]: "project"目录下零散的单独文件
+    -n NAME: exe文件的名字
+eg:
+    pyinstaller -F main.py -p ../folder1 -p ../folder2 --hidden-import ../other1.py --hidden-import ../other2.py
+
+    新生成的文件夹build和dist，dist文件夹下就是相应的exe文件，exe文件可以拷贝到任意位置运行
+
+也可以编辑spec文件，再输入以下指令
+    pyinstaller -F MovieSpider.spec
